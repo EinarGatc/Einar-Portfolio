@@ -86,7 +86,7 @@ export const Projects = () => {
     };
 
     return (
-    <div className="w-full px-21">
+    <div className="w-full md:px-21">
         <div className="flex w-full gap-8 mb-8">
             {projects.map((project, index) => (
             <button

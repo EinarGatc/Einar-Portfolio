@@ -14,12 +14,12 @@ function App() {
         <NavbarComponent />
         
         {/* Hero Section */}
-        <section id="hero" className="sticky top-0 z-0 flex w-full justify-center px-21 min-h-screen">
+        <section id="hero" className="sticky top-0 z-0 flex w-full justify-center md:px-21 min-h-screen">
             <HeroProfile />
         </section>
       
-        <div className="flex z-1 flex-col w-full h-full justify-center px-21">
-            <section id="about" className="bg-white rounded-t-4xl py-20 px-21">
+        <div className="flex z-1 flex-col w-full h-full justify-center md:px-21">
+            <section id="about" className="bg-white rounded-t-4xl py-20 md:px-21">
                 <div className='flex flex-col space-y-4'>
                     <div className='text-xl text-[#F6BD60]'>A BIT</div>
                     <div className='text-4xl'>About Me</div>
@@ -46,7 +46,7 @@ function App() {
                 </div>
             </section>
             
-            <section id="education" className="bg-white min-h-[50vh] pb-20 px-21">
+            <section id="education" className="bg-white min-h-[50vh] pb-20 md:px-21">
                 <div className='flex flex-col h-full lg:flex-row mb-20 w-full lg:justify-between'>
                     <div className='flex w-full lg:w-1/2 flex-col space-y-4 justify-center'>
                     <div className='text-xl text-[#F6BD60]'>ZOT ZOT ZOT!</div>
@@ -101,7 +101,7 @@ function App() {
                 </div>
             </section>
             
-            <section id="skills" className="bg-white pb-20 px-21">
+            <section id="skills" className="bg-white pb-20 md:px-21">
             <div className='flex flex-col mb-20 items-center space-y-10'>
                 <span className='text-4xl'>Technical Skills</span>
                 <TechnologicalSkill />

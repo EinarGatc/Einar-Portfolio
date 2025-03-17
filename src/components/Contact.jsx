@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const ContactSection = () => {
   return (
-    <div className="w-full px-21 py-20">
+    <div className="w-full md:px-21 py-20">
         <div className="p-12 flex flex-col md:flex-row w-full space-y-4">
             <form 
                 className="flex flex-col justify-center md:justify-start w-full md:w-1/2 text-[34px] space-y-3" 
