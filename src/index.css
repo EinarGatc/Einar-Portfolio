@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'devicon/devicon.min.css';
+@import "tailwindcss";
+
+
+@theme {
+  --font-display: "Oswald", "sans-serif";
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(239 246 255);
+}
