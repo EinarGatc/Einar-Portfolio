@@ -47,14 +47,14 @@ export const WorkExperience = () => {
     ]
 
     return (
-        <div className="px-21">
+        <div className="px-5 md:px-21 w-full">
             {experiences.map((exp, expIndex) => (
                 <div 
                 key={expIndex} 
                 className="flex flex-col pb-20 text-white space-y-4"
                 >
-                    <div className="text-3xl px-10">{exp.job_title}</div>
-                    <div className="text-2xl px-10 text-[#F6BD60]">{exp.company}</div>
+                    <div className="text-xl md:text-3xl px-10">{exp.job_title}</div>
+                    <div className="text-xl md:text-2xl px-10 text-[#F6BD60]">{exp.company}</div>
                     <Experience experience={exp}/>
                 </div>
             ))}
@@ -104,7 +104,7 @@ const Experience = ({experience}) => {
                         className="pb-10"
                     >
                         <div className="font-semibold mb-2">{section.title}</div>
-                        <p className="text-xl text-white">{section.description}</p>
+                        <p className="text-white">{section.description}</p>
                     </div>
                     </FadeInSection>
                 ))}

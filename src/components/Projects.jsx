@@ -86,7 +86,7 @@ export const Projects = () => {
     };
 
     return (
-    <div className="w-full md:px-21">
+    <div className="w-full px-5 md:px-21">
         <div className="flex w-full gap-8 mb-8">
             {projects.map((project, index) => (
             <button
@@ -117,7 +117,7 @@ export const Projects = () => {
             <div className="flex flex-col lg:flex-row gap-12">
                 <div className="lg:w-1/2">
                     <motion.h1 
-                    className="text-5xl font-bold mb-8 leading-tight"
+                    className="text-2xl md:text-4xl font-bold mb-8 leading-tight"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -131,7 +131,7 @@ export const Projects = () => {
                     transition={{ delay: 0.3 }}
                     >
                         <a href={projects[activeTab].content.github}>
-                            <button className="bg-black text-xl text-white py-2 px-6 rounded-md font-medium w-fit hover:bg-gray-800 transition-colors">
+                            <button className="bg-black text-white py-2 px-6 rounded-md font-medium w-fit hover:bg-gray-800 transition-colors">
                                 View More
                             </button>
                         </a> 
@@ -139,20 +139,15 @@ export const Projects = () => {
                     {projects[activeTab].content.features.map((feature, index) => (
                         <motion.li 
                         key={index} 
-                        className="flex items-center mb-1 gap-2"
+                        className="flex z-0 items-center mb-1 gap-2"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 + index * 0.1 }}
                         >
-                            <div className="p-2 z-0 bg-white rounded-md mt-1">
-                                <svg 
-                                className="w-6 h-6 text-black" 
-                                viewBox="0 0 24 24" 
-                                fill="none" 
-                                xmlns="http://www.w3.org/2000/svg"
-                                >
+                            <div className="flex p-2 bg-white text-black rounded-md mt-1">
                                     {activeTab === 0 && index === 0 && (
                                         <IoDocuments />
+
                                     )}
                                     {activeTab === 0 && index === 1 && (
                                         <IoStopwatch />
@@ -180,10 +175,8 @@ export const Projects = () => {
                                     {activeTab === 2 && index === 2 && (
                                         <FaGear />
                                     )}
-                                
-                                </svg>
                             </div>
-                            <div className='z-1'>{feature.description}</div>
+                            <div>{feature.description}</div>
                         </motion.li>
                     ))}
                 </div>
@@ -195,7 +188,7 @@ export const Projects = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                     >
-                        <div className="lg:w-1/2 flex justify-center items-center mt-12 lg:mt-0">
+                        <div className="lg:w-1/2 z-1 flex justify-center items-center mt-12 lg:mt-0">
                             {activeTab == 0 && (
                                 <div className="relative">
                                     <div className="absolute -top-40 right-0 w-120 h-120 bg-cyan-300 rounded-full opacity-40"></div>

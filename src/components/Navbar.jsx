@@ -17,17 +17,15 @@ export const NavbarComponent = () => {
     };
   
     return (
-      <nav className="fixed top-0 w-full z-50 bg-white shadow-md text-xl">
-        <div className="container mx-auto px-6 py-3">
-          <div className="flex justify-between items-center">
-            <div>Einar Gatchalian</div>
-            <div className="flex space-x-6">
-              <button onClick={() => scrollToSection('about')} className="hover:text-[#F6BD60]">About</button>
-              <button onClick={() => scrollToSection('portfolio')} className="hover:text-[#F6BD60]">Portfolio</button>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-[#F6BD60]">Contact</button>
-            </div>
+      <div className="py-3">
+        <div className="flex justify-between items-center">
+          <div>Einar</div>
+          <div className="flex space-x-6">
+            <button onClick={() => scrollToSection('about')} className="hover:text-[#F6BD60]">About</button>
+            <button onClick={() => scrollToSection('portfolio')} className="hover:text-[#F6BD60]">Portfolio</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-[#F6BD60]">Contact</button>
           </div>
         </div>
-      </nav>
+      </div>
     );
 };

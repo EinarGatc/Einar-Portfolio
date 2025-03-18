@@ -10,25 +10,27 @@ import AZ from "/images/Anteater.png";
 import UCI from "/images/UCI.svg";
 function App() {
   return (
-    <div className="flex flex-col font-secondary items-center">
-        <NavbarComponent />
+    <div className="flex w-full flex-col font-secondary items-center">
+        <nav id="navbar" className="fixed top-0 w-full px-21 z-50 bg-white shadow-md text-xl">
+            <NavbarComponent /> 
+        </nav>
+
         
         {/* Hero Section */}
-        <section id="hero" className="sticky top-0 z-0 flex w-full justify-center md:px-21 min-h-screen">
+        <section id="hero" className="sticky top-0 z-0 flex h-[100vh] w-full justify-center text-5xl md:text-6xl md:px-21">
             <HeroProfile />
         </section>
       
-        <div className="flex z-1 flex-col w-full h-full justify-center md:px-21">
-            <section id="about" className="bg-white rounded-t-4xl py-20 md:px-21">
+        <div className="flex z-1 flex-col w-full h-full text-md md:text-2xl justify-center md:px-21">
+            <section id="about" className="bg-white rounded-t-4xl py-20 px-5 md:px-21">
                 <div className='flex flex-col space-y-4'>
-                    <div className='text-xl text-[#F6BD60]'>A BIT</div>
-                    <div className='text-4xl'>About Me</div>
+                    <div className='text-[#F6BD60]'>A BIT</div>
+                    <div className='text-2xl md:text-4xl'>About Me</div>
                     <motion.div
                     initial={{ y: 100, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true, amount: .5 }}
                     transition={{ duration: 0.8 }}
-                    className="text-2xl"
                     >
                     I am a fourth-year at the University of California, 
                     Irvine, currently pursuing a bacheolors of science in 
@@ -46,24 +48,23 @@ function App() {
                 </div>
             </section>
             
-            <section id="education" className="bg-white min-h-[50vh] pb-20 md:px-21">
-                <div className='flex flex-col h-full lg:flex-row mb-20 w-full lg:justify-between'>
+            <section id="education" className="bg-white min-h-[50vh] pb-20 text-md md:text-2xl md:px-21">
+                <div className='flex flex-col h-full lg:flex-row mb-20 w-full px-5 lg:justify-between'>
                     <div className='flex w-full lg:w-1/2 flex-col space-y-4 justify-center'>
-                    <div className='text-xl text-[#F6BD60]'>ZOT ZOT ZOT!</div>
-                    <div className='text-4xl'>Education</div>
+                    <div className='text-[#F6BD60]'>ZOT ZOT ZOT!</div>
+                    <div className='text-2xl md:text-4xl'>Education</div>
                     <div className='flex w-full h-full flex-col space-y-2'>
                         <motion.div
                         initial={{ y: 100, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true, amount: .5 }}
                         transition={{ duration: .8 }}
-                        className="text-2xl"
                         >
                         <div className='flex items-baseline justify-between'>
-                            <div className='text-3xl'>B.S. in Computer Science</div>
-                            <div className='text-gray-500 text-2xl'>2021-2025</div>
+                            <div className=''>B.S. in Computer Science</div>
+                            <div className='text-gray-500'>2021-2025</div>
                         </div>
-                        <div className='text-2xl text-[#F6BD60]'>University of California, Irvine</div>
+                        <div className='text-[#F6BD60]'>University of California, Irvine</div>
                         Regents Scholar. Specialized in Intelligent Systems.
                         Participated in the capstone program, developing AI
                         to detect deepfake music for the company, Sound Ethics.
@@ -102,28 +103,28 @@ function App() {
             </section>
             
             <section id="skills" className="bg-white pb-20 md:px-21">
-            <div className='flex flex-col mb-20 items-center space-y-10'>
-                <span className='text-4xl'>Technical Skills</span>
-                <TechnologicalSkill />
-            </div>
+                <div className='flex flex-col mb-20  items-center space-y-10'>
+                    <span className='text-2xl md:text-4xl'>Technical Skills</span>
+                    <TechnologicalSkill />
+                </div>
             </section>
             
             <section id="portfolio" className="bg-[#0F0F0F] text-white">
-                <div className='flex w-full pt-20 text-2xl flex-col items-center'>
-                    <span className='text-4xl pb-5'>Work Experience</span>
+                <div className='flex w-full pt-20 text-md md:text-2xl flex-col items-center'>
+                    <span className='text-2xl md:text-4xl pb-5'>Work Experience</span>
                     <WorkExperience /> 
                 </div>
 
-                <div className='flex w-full pb-20 text-2xl flex-col items-center space-y-10'>
-                    <span className='text-4xl pb-5'>Recent Projects</span>
+                <div className='flex w-full pb-20 text-md md:text-2xl flex-col items-center space-y-10'>
+                    <span className='text-2xl md:text-4xl pb-5'>Recent Projects</span>
                     <Projects />
                 </div>
             </section>
             
             <section id="contact" className="z-1">
-            <div className='flex bg-white w-full h-full text-2xl flex-col text-black items-center space-y-10'>
-                <ContactSection />
-            </div>
+                <div className='flex bg-white w-full h-full text-md md:text-2xl flex-col text-black items-center space-y-10'>
+                    <ContactSection />
+                </div>
             </section>
         </div>
     </div>

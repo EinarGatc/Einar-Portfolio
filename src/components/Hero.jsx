@@ -2,12 +2,12 @@ import Typewriter from 'typewriter-effect';
 import profile from '/images/Profile.jpg'
 export const HeroProfile = () => {
     return (
-        <div className="w-full mt-16 h-[calc(100vh-6rem)] bg-[#0F0F0F]  rounded-4xl py-5 md:px-20" id='#About'>
-            <div className="flex flex-col md:flex-row text-gray-400 font-secondary items-center h-full gap-2 space-y-2">
-                <div className="flex flex-col text-4xl w-[60%] h-1/2 justify-start">
-                    <span className="text-6xl">Hi, I'm</span>
-                    <span className='text-6xl text-white'> Einar Gatchlian</span>
-                    <span className='ml-1'>
+        <div className="w-full md:mt-16 bg-[#0F0F0F] pt-20 md:pt-0 md:rounded-4xl py-10 px-5 md:px-20" id='#About'>
+            <div className="flex flex-col md:flex-row text-gray-400 items-center h-full gap-2 space-y-2 ">
+                <div className="flex flex-col w-[60%] h-1/2 md:justify-start">
+                    <span className="text-gray-400">Hi, I'm</span>
+                    <span className='text-white'> Einar Gatchlian</span>
+                    <span className='ml-1 text-3xl md:text-4xl'>
                         <Typewriter
                         onInit={(typewriter) => {
                             typewriter
@@ -28,7 +28,7 @@ export const HeroProfile = () => {
                         />
                     </span>
                 </div>
-                <div className="w-[40%] aspect-square rounded-full bg-white overflow-hidden border-4 border-[#F6BD60] shadow-lg">
+                <div className="h-1/2 aspect-square rounded-full bg-white overflow-hidden border-4 border-[#F6BD60] shadow-lg">
                     <img 
                     src={profile} 
                     alt="" 
