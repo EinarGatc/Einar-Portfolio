@@ -17,7 +17,7 @@ function App() {
 
         
         {/* Hero Section */}
-        <section id="hero" className="sticky top-0 z-0 flex h-[100vh] w-full justify-center text-5xl md:text-6xl md:px-21">
+        <section id="hero" className="sticky top-0 z-0 flex h-[100vh] w-full justify-center text-4xl md:text-6xl md:px-21">
             <HeroProfile />
         </section>
       

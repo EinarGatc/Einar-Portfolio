@@ -95,7 +95,7 @@ export const TechnologicalSkill = () => {
                 <div>
                     {Math.floor(index / columns) % 2 === 0 &&
                         <motion.div
-                            initial={{ x: -100, opacity: 0 }}
+                            initial={{ x: -50, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true, amount: .2 }}
                             transition={{ duration: .8 }} 
@@ -113,7 +113,7 @@ export const TechnologicalSkill = () => {
                     }
                     {Math.floor(index / columns) % 2 === 1 &&
                         <motion.div
-                            initial={{ x: 100, opacity: 0 }}
+                            initial={{ x: 50, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true, amount: .2 }}
                             transition={{ duration: .8 }}
