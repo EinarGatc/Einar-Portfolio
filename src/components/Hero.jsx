@@ -3,7 +3,7 @@ import profile from '/images/Profile.jpg'
 export const HeroProfile = () => {
     return (
         <div className="w-full mt-16 h-[calc(100vh-6rem)] bg-[#0F0F0F]  rounded-4xl py-5 md:px-20" id='#About'>
-            <div className="flex text-gray-400 font-secondary items-center h-full gap-2">
+            <div className="flex flex-col md:flex-row text-gray-400 font-secondary items-center h-full gap-2 space-y-2">
                 <div className="flex flex-col text-4xl w-[60%] h-1/2 justify-start">
                     <span className="text-6xl">Hi, I'm</span>
                     <span className='text-6xl text-white'> Einar Gatchlian</span>
