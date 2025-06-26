@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavbarComponent } from './components/navbar'
 import { HeroProfile } from './components/Hero'
 import { TechnologicalSkill } from './components/Skills'
-import { WorkExperience } from './components/Experience'
+import { WorkExperience} from './components/Experience'
 import { Projects } from './components/Projects'
 import ContactSection from './components/Contact'
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,119 +10,110 @@ import AZ from "/images/Anteater.png";
 import UCI from "/images/UCI.svg";
 function App() {
   return (
-    <div className="flex w-full flex-col font-secondary items-center">
-        <nav id="navbar" className="fixed top-0 w-full px-21 z-50 bg-white shadow-md text-xl">
+    <div className="flex w-full bg-black flex-col font-geist items-center px-21">
+        <nav id="navbar" className="fixed top-0 w-full px-4 z-50 bg-white shadow-md font-geist-mono text-xl">
             <NavbarComponent /> 
         </nav>
 
         
         {/* Hero Section */}
-        <section id="hero" className="sticky top-0 z-0 flex h-[100vh] w-full justify-center text-4xl md:text-6xl md:px-21">
+        <section id="hero" className="top-0 pt-10 z-0 flex h-[100vh] w-full justify-center text-4xl md:text-6xl">
             <HeroProfile />
         </section>
       
-        <div className="flex z-1 flex-col w-full h-full text-md md:text-2xl justify-center md:px-21">
-            <section id="about" className="bg-white rounded-t-4xl py-20 px-5 md:px-21">
+        <div className="flex z-1 flex-col max-w-4xl bg-black h-full text-xl text-[#999999] justify-center space-y-20 py-20">
+            <section id="about" className="w-full">
                 <div className='flex flex-col space-y-4'>
-                    <div className='text-[#F6BD60]'>A BIT</div>
-                    <div className='text-2xl md:text-4xl'>About Me</div>
+                    <div className='text-4xl text-white font-geist-mono'>About Me</div>
                     <motion.div
                     initial={{ y: 100, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true, amount: .5 }}
                     transition={{ duration: 0.8 }}
                     >
-                    I am a fourth-year at the University of California, 
-                    Irvine, currently pursuing a bacheolors of science in 
-                    computer science. I am interested in AI 
-                    and software development.
-                    With a desire for knowledge, I have learned that I 
-                    grow through rapid research, implementation, and 
-                    teaching. Teaching is essential to my learning 
-                    methodology as it tests my understanding and 
-                    communication capabilities.
-                    I am Filipino and grew up in California. I love to
-                    travel and have been fortunate enough to travel to
-                    multiple countries in Europe, Asia, and North America.
+                    I'm a recent Computer Science graduate from UC Irvine with a deep passion for AI and software development. My learning philosophy centers on a continuous cycle of research, implementation, and teaching. I believe you truly master something when you can share that knowledge with others. This approach has shaped how I tackle complex problems and build meaningful solutions.
+                    </motion.div>
+                    <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, amount: .5 }}
+                    transition={{ duration: 0.8 }}
+                    >
+                    
+                    I thrive on the full spectrum of development, from diving deep into machine learning algorithms to architecting scalable web applications. Whether I'm working with neural networks, building mobile apps, or creating APIs, I'm driven by the challenge of transforming innovative ideas into real-world impact. My experience spans research labs to startup environments, always pushing to learn new technologies and methodologies.
+                    
+                    </motion.div>
+                    <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, amount: .5 }}
+                    transition={{ duration: 0.8 }}
+                    >
+                    As a Filipino-American from California, I bring diverse perspectives to everything I create. Outside of coding and research, I'm passionate about gaming, appreciating both the technical craftsmanship and strategic depth of well-designed systems, and traveling the world. I've explored countries across Europe, Asia, and North America, experiences that constantly inspire fresh approaches to problem-solving and innovation.
                     </motion.div>
                 </div>
             </section>
             
-            <section id="education" className="bg-white min-h-[50vh] pb-20 text-md md:text-2xl md:px-21">
-                <div className='flex flex-col h-full lg:flex-row mb-20 w-full px-5 lg:justify-between'>
-                    <div className='flex w-full lg:w-1/2 flex-col space-y-4 justify-center'>
-                    <div className='text-[#F6BD60]'>ZOT ZOT ZOT!</div>
-                    <div className='text-2xl md:text-4xl'>Education</div>
-                    <div className='flex w-full h-full flex-col space-y-2'>
-                        <motion.div
-                        initial={{ y: 100, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: .5 }}
-                        transition={{ duration: .8 }}
-                        >
-                        <div className='flex items-baseline justify-between'>
-                            <div className=''>B.S. in Computer Science</div>
-                            <div className='text-gray-500'>2021-2025</div>
+            <section id="education" className="relative w-full h-full">
+                <div className='flex flex-col h-full lg:flex-row w-full lg:justify-between items-center'>
+                    <div className='relative flex w-full flex-col space-y-4 justify-center'>
+                        <div className='text-4xl text-white font-geist-mono'>Education</div>
+                        <div className='flex w-full h-full flex-col'>
+                            <motion.div
+                            initial={{ y: 100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true, amount: .5 }}
+                            transition={{ duration: .8 }}
+                            className='space-y-3'
+                            >
+                            <div className='text-white font-geist-mono text-3xl'>University of California, Irvine</div>
+                            <div className='space-y-1'>
+                                <div className='flex items-baseline'>
+                                    <span className='text-white'>Bachelor of Science in Computer Science</span>
+                                    <span className='bg-white w-0.5 self-stretch mx-2 my-1'></span>
+                                    <span className=''> Sep. 2021 - June 2025</span>
+                                </div>
+                                <div className='flex items-baseline'>
+                                    <span className='pr-2'>Specialization:</span>
+                                    <span className=''>Intellgent Systems</span>
+                                </div>
+                                <div className='flex items-baseline'>
+                                    <span className='text-white pr-2'>GPA:</span>
+                                    <span className=''>3.84</span>
+                                </div>    
+                            </div>
+                            </motion.div>
                         </div>
-                        <div className='text-[#F6BD60]'>University of California, Irvine</div>
-                        Regents Scholar. Specialized in Intelligent Systems.
-                        Participated in the capstone program, developing AI
-                        to detect deepfake music for the company, Sound Ethics.
-                        </motion.div>
-                    </div>
-                    </div>
-                    <div className='relative flex w-full pt-10 lg:pt-0 min-h-[30vh] lg:justify-center lg:w-1/2'>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.8 }}
-                        className='absolute z-20 transform -rotate-10 w-1/2 h-3/4 lg:left-1/4 lg:w-1/2 lg:h-1/2 rounded-lg overflow-hidden hover:z-50 transition-all duration-300 hover:rotate-0 hover:scale-105'
-                    >
-                        <img 
-                        src={AZ} 
-                        alt="" 
-                        className="w-full h-full"
-                        />
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.8 }}
-                        className='absolute lg:top-1/2 lg:left-1/2 left-5/8 z-10 transform rotate-6 h-full lg:w-1/2 lg:h-1/2 rounded-lg overflow-hidden hover:z-50 transition-all duration-300 hover:rotate-0 hover:scale-105'
-                    >
-                        <img 
-                        src={UCI} 
-                        alt="" 
-                        className="w-full h-full"
-                        />
-                    </motion.div>
-                    </div>
+                    </div> 
                 </div>
             </section>
             
-            <section id="skills" className="bg-white pb-20 md:px-21">
-                <div className='flex flex-col mb-20  items-center space-y-10'>
-                    <span className='text-2xl md:text-4xl'>Technical Skills</span>
+            
+            
+            <section id="portfolio" className="">
+                <div className='flex w-full text-xl flex-col items-center space-y-4'>
+                    <span className='text-4xl text-white font-geist-mono'>Work Experience</span>
+                    <div>
+                        <WorkExperience />     
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <div className='z-1 flex max-w-4xl text-xl flex-col items-center space-y-4'>
+                <span className='text-white font-geist-mono text-4xl'>Recent Projects</span>
+                <Projects />
+            </div>
+        
+            <section id="skills" className="max-w-4xl text-white">
+                <div className='flex flex-col items-center space-y-4'>
+                    <span className='text-2xl md:text-4xl text-white font-geist-mono'>Technical Skills</span>
                     <TechnologicalSkill />
                 </div>
             </section>
             
-            <section id="portfolio" className="bg-[#0F0F0F] text-white">
-                <div className='flex w-full pt-20 text-md md:text-2xl flex-col items-center'>
-                    <span className='text-2xl md:text-4xl pb-5'>Work Experience</span>
-                    <WorkExperience /> 
-                </div>
-
-                <div className='flex w-full pb-20 text-md md:text-2xl flex-col items-center space-y-10'>
-                    <span className='text-2xl md:text-4xl pb-5'>Recent Projects</span>
-                    <Projects />
-                </div>
-            </section>
-            
-            <section id="contact" className="z-1">
-                <div className='flex bg-white w-full h-full text-md md:text-2xl flex-col text-black items-center space-y-10'>
+            <section id="contact" className="z-1 max-w-4xl">
+                <div className='flex w-full h-full text-xl flex-col items-center'>
                     <ContactSection />
                 </div>
             </section>

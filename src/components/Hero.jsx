@@ -1,41 +1,46 @@
 import Typewriter from 'typewriter-effect';
 import profile from '/images/Profile.jpg'
+import { FaGithub, FaEnvelope, FaLinkedin  } from "react-icons/fa";
+import { scrollToSection } from './navbar';
+import { motion, AnimatePresence } from "framer-motion";
+
 export const HeroProfile = () => {
     return (
-        <div className="w-full mt-15 md:mt-16 bg-[#0F0F0F] md:pt-0 md:rounded-4xl py-10 px-5 md:px-20" id='#About'>
-            <div className="flex flex-col md:flex-row text-gray-400 items-center h-full gap-2 space-y-2 ">
-                <div className="flex flex-col pt-20 md:pt-0 w-[60%] h-1/2 md:justify-start">
-                    <span className="text-gray-400">Hi, I'm</span>
-                    <span className='text-white'> Einar Gatchlian</span>
-                    <span className='ml-1 text-2xl md:text-4xl'>
-                        <Typewriter
-                        onInit={(typewriter) => {
-                            typewriter
-                                .typeString("a")
-                                .typeString('<span style="color: white;"> Software Engineer.</span>')
-                                .pauseFor(1000)
-                                .deleteChars(18)
-                                .typeString('<span style="color: white;"> Student and Teacher.</span>')
-                                .pauseFor(1000)
-                                .deleteChars(20)
-                                .typeString(' <span style="color: white;"> Researcher.</span>')
-                                .pauseFor(1000)
-                                .start();
-                            }}
-                            options={{
-                                loop: true,
-                            }}
-                        />
-                    </span>
-                </div>
-                <div className="h-1/2 aspect-square rounded-full bg-white overflow-hidden border-4 border-[#F6BD60] shadow-lg">
+        <div className="w-full bg-black py-10 font-geist-mono" id='#About'>
+            <div className="flex flex-col text-white items-center justify-center h-full space-y-10">
+                <div className="h-1/3 aspect-square rounded-full bg-white overflow-hidden shadow-lg">
                     <img 
                     src={profile} 
                     alt="" 
                     className="w-full h-full object-cover"
                     />
                 </div>
+
+                <motion.div 
+                className='w-2/3 text-center'
+                initial={{ clipPath: "inset(0 100% 0 0)" }}
+                animate={{ clipPath: "inset(0 0 0 0)" }}
+                transition={{ duration: 1.0, ease: "easeInOut" }}
+                >
+                Hi, Im Einar Gatchalian
+                </motion.div>
+
+                <div className='w-2/3 flex flex-row justify-center text-black text-xl gap-4 flex-wrap'>
+                    <a href='https://www.linkedin.com/in/egatchal/' className='flex items-center justify-center py-1 px-3 bg-white border-black border-1.5 rounded-4xl space-x-2 hover:bg-gray-300'>
+                        <FaLinkedin/>
+                        <div>LinkedIn</div>
+                    </a>
+                    <a href='https://github.com/EinarGatc' className='flex items-center justify-center py-1 px-3 bg-white border-black border-1.5 rounded-4xl space-x-2 hover:bg-gray-300'>
+                        <FaGithub/>
+                        <div>GitHub</div>
+                    </a>
+                    <a onClick={() => scrollToSection('contact')} className='flex items-center justify-center py-1 px-3 bg-white border-black border-1.5 rounded-4xl space-x-2 hover:bg-gray-300'>
+                        <FaEnvelope/>
+                        <div>Contact Me</div>
+                    </a>
+                </div>
             </div>
+    
         </div>
     )
 }

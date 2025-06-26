@@ -1,54 +1,129 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { IoDocuments, IoStopwatch, IoPerson } from "react-icons/io5";
-import { FaMagnifyingGlass, FaMessage, FaGamepad, FaGear } from "react-icons/fa6";
-import { GoGraph } from "react-icons/go";
-import { RiStackFill } from "react-icons/ri";
-import MSE from "/images/MedicalSearchEngine.png"
-import BO from "/images/Adobytes.png"
-import MPE from "/images/MPE.gif"
 
+import MA1 from "/images/MA1.gif"
+import MA2 from "/images/MA2.gif"
+import MA3 from "/images/MA3.gif"
+
+import MSE1 from "/images/MSE1.png"
+import MSE2 from "/images/MSE2.png"
+import MSE3 from "/images/MSE3.png"
+import MSE4 from "/images/MSE4.png"
+
+import BO1 from "/images/BO1.png"
+import BO2 from "/images/BO2.png"
+import BO3 from "/images/BO3.png"
+import BO4 from "/images/BO4.png"
+import BO5 from "/images/BO5.png"
+
+import { FaGithub } from "react-icons/fa";
+
+const ImageSlider = ({ images = [] }) => {
+    const [positionIndexes, setPositionIndexes] = useState([0,1,2])
+    const handleNext = () => {
+        setPositionIndexes((prevIndexes) => {
+            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 1) % 3)
+            return updatedIndexes
+        })
+    }
+
+    const handlePrev = () => {
+        setPositionIndexes((prevIndexes) => {
+            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex - 1 + 3) % 3)
+            return updatedIndexes
+        })
+    }
+
+    const positions = [
+        'center',
+        'left',
+        'right'
+    ]
+
+    const imageVariants = {
+        center: {x:'0%', scale: 1, zIndex:5},
+        left: {x:'-75%', scale: .7, zIndex:1},
+        right: {x:'75%', scale: .7, zIndex:1}
+        
+    }
+    return (
+        <motion.div 
+            className='relative w-full md:w-1/3 aspect-square flex items-center flex-col justify-center bg-black overflow-hidden'
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: .2 }}
+            transition={{ duration: .8 }}
+        >
+            {images.map((image, index) =>
+                <motion.img
+                    key={index}
+                    src={image}
+                    alt={image}
+                    className=""
+                    initial="leftr"
+                    animate={positions[positionIndexes[index]]}
+                    variants={imageVariants}
+                    transition={{duration: 0.5}}
+                    style={{width: '75%', height: '75%', position:'absolute'}}
+                />
+            )}
+            <button 
+                className="absolute left-2 top-1/2 -translate-y-1/2 p-2 w-12 h-12 bg-black/50 rounded-full hover:bg-gray-300/50 hover:text-black text-white z-10" 
+                onClick={handlePrev}
+            >
+                ←
+            </button>
+            <button 
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 w-12 h-12 bg-black/50 rounded-full hover:bg-gray-300/50 hover:text-black text-white z-10" 
+                onClick={handleNext}
+            >
+                →
+            </button>
+        </motion.div>
+    )
+}
 const projects = [
-    {
-        title: "Medical Search Engine",
-        content: {
-            github: "https://github.com/EinarGatc/Medical-Search-Engine",
-            description: "Specialized medical information retrieval engine.",
-            project_image: MSE,
-            content_text_color: "text-white",
-            content_bg_color: "bg-sky-600",
-            
-            features: [
-                {
-                    description: "9000+ medical documents indexed",
-                },
-                {
-                    description: "Sub-300ms query response time",
-                },
-                {
-                    description: "Full-stack implementation",
-                }
-            ]
-        }
-    },
     {
         title: "Branch Out",
         content: {
             github: "https://github.com/heartybp/Adobytes",
-            description: "Networking platform connecting students with mentors.",
-            project_image: BO,
-            content_text_color: "text-white",
-            content_bg_color: "bg-emerald-900",
-            features: [
-                {
-                description: "Personalized user profile onboarding",
-                },
-                {
-                description: "Mentorship matching system",
-                },
-                {
-                description: "Interactive message board",
-                }
+            description: "Social networking platform that matches students with industry mentors through personalized profiles and messaging. Built with a scalable database architecture to support social networking and career development features.",
+            technologies: [
+                "React",
+                "Node.js",
+                "PostgreSQL", 
+                "Express.js",
+                "JavaScript",
+                "SQL",
+                "HTML",
+                "CSS"
+            ],
+            images: [
+                BO1,
+                BO2,
+                BO5
+            ]
+        }
+    },
+    {
+        title: "Medical Search Engine",
+        content: {
+            github: "https://github.com/EinarGatc/Medical-Search-Engine",
+            description: "Search system that efficiently processes thousands of medical documents using advanced algorithms and smart caching. Delivers sub-300ms query response times for accurate medical information retrieval.",
+            technologies: [
+                "Python",
+                "React", 
+                "JavaScript",
+                "Flask",
+                "HTML",
+                "CSS",
+                "Git",
+                "Beautiful Soup"
+            ],
+            images: [
+                MSE1,
+                MSE2,
+                MSE3
             ]
         }
     },
@@ -56,214 +131,55 @@ const projects = [
         title: "Multi-Agent AI",
         content: {
             github: "https://github.com/eddie100971/soccer-twos-working",
-            description: "Reinforcement learning for multi-agent environments.",
-            project_image: MPE,
-            content_text_color: "text-white",
-            content_bg_color: "bg-blue-950",
-            features: [
-                {
-                    description: "Soccer-Twos environment modeling",
-                },
-                {
-                    description: "Sample Dropout Variance Reduction",
-                },
-                {
-                    description: "MAPPO, RMAPPO, IPPO algorithm",
-                }
+            description: "AI project exploring collaborative and competitive behaviors between multiple intelligent agents. Implements advanced algorithms to study decision-making patterns in dynamic multi-agent scenarios.",
+            technologies: [
+                "PyTorch",
+                "Python",
+                "Git"
+            ],
+            images: [
+                MA1,
+                MA2,
+                MA3
             ]
         }
     }
 ]
 
 export const Projects = () => {
-
-    const [activeTab, setActiveTab] = useState(0);
-    const [direction, setDirection] = useState(0);
-    
-    const handleTabChange = (index) => {
-        setDirection(index > activeTab ? 1 : -1);
-        setActiveTab(index);
-    };
-
     return (
-        <div className="w-full px-5 md:px-21">
-            <div className="flex w-full gap-8 mb-8">
-                {projects.map((project, index) => (
-                <button
-                    key={index}
-                    className={`flex-1 py-2 text-center font-medium rounded-md text-sm uppercase tracking-wide transition-colors duration-200 ${
-                    activeTab === index
-                        ? `${projects[activeTab].content.content_bg_color} text-white`
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
-                    onClick={() => handleTabChange(index)}
+        <div className='flex flex-col w-full space-y-20'>
+            {projects.map((project, index) => 
+                <div className='flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0'> 
+                <ImageSlider images={project.content.images}></ImageSlider>
+                <motion.div 
+                    className='w-full md:w-2/3 flex flex-col space-y-4'
+                    initial={{ x: 50, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true, amount: .2 }}
+                    transition={{ duration: .8 }}
                 >
-                    {project.title}
-                </button>
-                ))}
-            </div>
-
-            <div className={`${projects[activeTab].content.content_bg_color} ${projects[activeTab].content.content_text_color} p-12 rounded-lg min-h-[500px] overflow-hidden relative`}>
-                <AnimatePresence initial={false} custom={direction} mode="wait">
-                <motion.div
-                    key={activeTab}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction > 0 ? 300 : -300 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: direction > 0 ? -300 : 300 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="w-full"
-                >
-                    <div className="flex flex-col lg:flex-row gap-12 z-10">
-                        <div className=" lg:w-1/2">
-                            <motion.h1 
-                            className="text-2xl md:text-4xl font-bold mb-8 leading-tight z-1"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            >
-                            {projects[activeTab].content.description}
-                            </motion.h1>
-                            <motion.div 
-                            className="flex flex-col gap-6 mb-8"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            >
-                                <a className="z-1" href={projects[activeTab].content.github}>
-                                    <button className="bg-black text-white py-2 px-6 rounded-md font-medium w-fit hover:bg-gray-800 transition-colors">
-                                        View More
-                                    </button>
-                                </a> 
-                            </motion.div>
-                            {projects[activeTab].content.features.map((feature, index) => (
-                                <motion.li 
-                                key={index} 
-                                className="flex items-center mb-1 gap-2"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 + index * 0.1 }}
-                                >
-                                    <div className="flex p-2 bg-white text-black rounded-md mt-1 z-1">
-                                            {activeTab === 0 && index === 0 && (
-                                                <IoDocuments />
-
-                                            )}
-                                            {activeTab === 0 && index === 1 && (
-                                                <IoStopwatch />
-                                            )}
-                                            {activeTab === 0 && index === 2 && (
-                                                <RiStackFill />
-                                            )}
-
-                                            {activeTab === 1 && index === 0 && (
-                                                <IoPerson />
-                                            )}
-                                            {activeTab === 1 && index === 1 && (
-                                                <FaMagnifyingGlass />
-                                            )}
-                                            {activeTab === 1 && index === 2 && (
-                                                <FaMessage />
-                                            )}
-
-                                            {activeTab === 2 && index === 0 && (
-                                                <FaGamepad />
-                                            )}
-                                            {activeTab === 2 && index === 1 && (
-                                                <GoGraph />
-                                            )}
-                                            {activeTab === 2 && index === 2 && (
-                                                <FaGear />
-                                            )}
-                                    </div>
-                                    <div className='z-1'>{feature.description}</div>
-                                </motion.li>
-                            ))}
-                        </div>
-
-                        <div className="lg:w-1/2">
-                            <motion.div 
-                            className="flex flex-col h-full justify-center items-center"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            >
-                                <div className="lg:w-1/2 flex justify-center items-center mt-12 lg:mt-0">
-                                    {activeTab == 0 && (
-                                        <div className="relative">
-                                            <div className="absolute -top-40 right-0 w-120 h-120 bg-cyan-300 rounded-full opacity-40"></div>
-                                            <div className="absolute -bottom-60 left-1/4 w-140 h-140 bg-cyan-400 rounded-full opacity-30"></div>
-                                            
-                                            {/* Medium circles - positioned around content */}
-                                            <div className="absolute top-1/3 -left-20 w-60 h-60 bg-blue-400 rounded-full opacity-25"></div>
-                                            <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-cyan-500 rounded-full opacity-20"></div>
-                                            
-                                            {/* Additional medium circles */}
-                                            <div className="absolute -top-20 left-1/3 w-50 h-50 bg-blue-300 rounded-full opacity-30"></div>
-                                            <div className="absolute -bottom-10 -right-20 w-70 h-70 bg-blue-400 rounded-full opacity-20"></div>
-                                            
-                                            {/* Closer small circles */}
-                                            <div className="absolute top-3/4 left-10 w-30 h-30 bg-blue-200 rounded-full opacity-25"></div>
-                                            <div className="absolute bottom-1/4 right-10 w-26 h-26 bg-cyan-200 rounded-full opacity-30"></div>
-                                            
-                                            {/* Main image container */}
-                                            <div className="bg-white z-1 p-6 rounded-lg shadow-xl w-80 h-80 relative">
-                                                <img src={projects[activeTab].content.project_image} alt="" />
-                                            </div>
-                    
-                                        </div>
-                                    )}
-                                    {activeTab == 1 && (
-                                        <div className="relative">
-                                            {/* Primary large background circles - jungle/forest theme */}
-                                            <div className="absolute -top-80 -right-40 w-180 h-180 bg-emerald-800 rounded-full opacity-25"></div>
-                                            <div className="absolute -bottom-60 left-40 w-160 h-160 bg-green-900 rounded-full opacity-20"></div>
-
-                                            {/* Medium accent circles */}
-                                            <div className="absolute top-1/3 -right-60 w-120 h-120 bg-lime-700 rounded-full opacity-15"></div>
-                                            <div className="absolute bottom-1/4 -left-30 w-100 h-100 bg-amber-700 rounded-full opacity-10"></div>
-
-                                            {/* Single gradient circle */}
-                                            <div className="absolute top-2/3 right-1/4 w-60 h-60 bg-gradient-to-br from-emerald-700 to-green-900 rounded-full opacity-15"></div>
-                                            <div className="bg-white z-1 p-6 rounded-lg shadow-xl w-80 h-80 relative">
-                                                <img src={projects[activeTab].content.project_image} alt="" />
-                                            </div>
-                    
-                                        </div>
-                                    )}
-                                    {activeTab == 2 && (
-                                        <div className="relative">
-                                            <div className="absolute -top-60 -left-60 w-120 h-120 bg-blue-800 rounded-full opacity-20"></div>
-                                            <div className="absolute top-20 right-20 w-48 h-48 bg-teal-600 rounded-full opacity-25"></div>
-                                            
-                                            {/* Lower area circles */}
-                                            <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-cyan-900 rounded-full opacity-15"></div>
-                                            <div className="absolute bottom-40 left-40 w-64 h-64 bg-indigo-700 rounded-full opacity-20"></div>
-                                            
-                                            {/* Side circles */}
-                                            <div className="absolute top-1/3 -left-30 w-60 h-60 bg-blue-600 rounded-full opacity-20"></div>
-                                            <div className="absolute bottom-1/3 -right-30 w-60 h-60 bg-teal-700 rounded-full opacity-20"></div>
-                                            
-                                            {/* Scattered small circles */}
-                                            <div className="absolute top-1/4 left-1/4 w-20 h-20 bg-sky-500 rounded-full opacity-30"></div>
-                                            <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-indigo-500 rounded-full opacity-25"></div>
-                                            <div className="absolute top-3/4 left-2/3 w-24 h-24 bg-cyan-600 rounded-full opacity-20"></div>
-                                            <div className="absolute bottom-2/3 right-1/3 w-14 h-14 bg-blue-500 rounded-full opacity-30"></div>
-                                            
-                                            {/* Main image container */}
-                                            <div className="bg-white z-1 p-6 rounded-lg shadow-xl w-80 h-80 relative">
-                                                <img src={projects[activeTab].content.project_image} alt="" />
-                                            </div>
-                    
-                                        </div>
-                                    )}
-                                </div>
-                            </motion.div>
-                        </div>
+                    <div className='text-4xl text-white font-geist-mono'>{project.title}</div>
+                    <div>{project.content.description}</div>
+                    <div className='text-white'>Technologies Used:</div>
+                    <div className='flex flex-wrap gap-1 mb-4'>
+                        {project.content.technologies.map((technology, index2) => 
+                            <div key={index2} className='text-sm px-2 rounded-2xl bg-white text-black '>
+                            {technology}
+                            </div>
+                        )}    
                     </div>
+                    <a href={project.content.github} className='flex text-sm bg-white text-black items-center space-x-2 font-bold rounded-sm px-2 py-1 mt-5 self-start hover:bg-gray-300'> 
+                        <FaGithub className='w-8 h-8'/> 
+                        <div>View on GitHub</div>
+                    </a>
                 </motion.div>
-                </AnimatePresence>
             </div>
+                
+
+            )}
+             
         </div>
+        
     );
 };

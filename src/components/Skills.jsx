@@ -59,9 +59,13 @@ export const TechnologicalSkill = () => {
           name: "AWS", 
           img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" 
         },
+        // { 
+        //     name: "Flask", 
+        //     img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" 
+        // },
         { 
-            name: "Flask", 
-            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" 
+            name: "PyTorch", 
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" 
         },
     ];
     
@@ -90,7 +94,7 @@ export const TechnologicalSkill = () => {
 
     return (
         <div className="flex w-full justify-center"> 
-            <div className="flex grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 justify-items-center max-w-4xl w-full">
+            <div className="flex grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 justify-center items-center w-full">
             {skills.map((skill, index) => (
                 <div>
                     {Math.floor(index / columns) % 2 === 0 &&
@@ -99,13 +103,13 @@ export const TechnologicalSkill = () => {
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true, amount: .2 }}
                             transition={{ duration: .8 }} 
-                            className="flex flex-col items-center"
+                            className="flex flex-col items-center mb-4"
                         >
                             <div className="w-20 h-20 flex items-center justify-center mb-2">
                                 <img 
                                 src={skill.img} 
                                 alt={`${skill.name} icon`} 
-                                className="w-16 h-16 object-contain"
+                                className="w-15 h-15 object-contain"
                                 />
                             </div>
                             <span className="text-sm font-medium">{skill.name}</span>
@@ -118,13 +122,13 @@ export const TechnologicalSkill = () => {
                             viewport={{ once: true, amount: .2 }}
                             transition={{ duration: .8 }}
                             key={index} 
-                            className="flex flex-col items-center"
+                            className="flex flex-col items-center mb-4"
                         >
                             <div className="w-20 h-20 flex items-center justify-center mb-2">
                                 <img 
                                 src={skill.img} 
                                 alt={`${skill.name} icon`} 
-                                className="w-16 h-16 object-contain"
+                                className="w-16 h-16 object-contain fill-white"
                                 />
                             </div>
                             <span className="text-sm font-medium">{skill.name}</span>

@@ -1,6 +1,20 @@
 import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 // In your NavbarComponent.jsx
+export const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+        const offset = 80; // Adjust based on your navbar height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+};
+
 export const NavbarComponent = () => {
 
   const [open, setOpen] = useState(false);
@@ -14,20 +28,6 @@ export const NavbarComponent = () => {
     window.addEventListener('resize', checkScreenSize);
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-        const offset = 80; // Adjust based on your navbar height
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-    }
-  };
 
   return (
     <div>
