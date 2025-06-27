@@ -1,5 +1,5 @@
 import Typewriter from 'typewriter-effect';
-import profile from '/images/Profile.jpg'
+import profile from '/images/Profile1.jpg'
 import { FaGithub, FaEnvelope, FaLinkedin  } from "react-icons/fa";
 import { scrollToSection } from './navbar';
 import { motion, AnimatePresence } from "framer-motion";
