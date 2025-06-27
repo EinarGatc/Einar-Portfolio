@@ -1,5 +1,5 @@
 import Typewriter from 'typewriter-effect';
-import profile from '/images/Profile1.jpg'
+import profile from '/images/Profile.jpg'
 import { FaGithub, FaEnvelope, FaLinkedin  } from "react-icons/fa";
 import { scrollToSection } from './navbar';
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,7 +17,7 @@ export const HeroProfile = () => {
                 </div>
 
                 <motion.div 
-                className='w-2/3 text-center'
+                className='text-center'
                 initial={{ clipPath: "inset(0 100% 0 0)" }}
                 animate={{ clipPath: "inset(0 0 0 0)" }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}

@@ -66,7 +66,6 @@ export const WorkExperience = () => {
     const measureHeights = () => {
         const heights = sectionRefs.current.map(ref => ref?.offsetHeight || 0);
         setSectionHeights(heights);
-        console.log('Section heights updated:', heights);
     };
     
     const totalHeightExceptLast = sectionHeights.slice(0, -1).reduce((sum, height) => sum + height, 0);
